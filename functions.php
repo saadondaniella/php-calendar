@@ -2,6 +2,10 @@
 
 function buildCalendar($year, $month, $bookedDays)
 {
+    $todayYear  = date('Y');
+    $todayMonth = date('n');
+    $todayDay   = date('j');
+
     // Svenska månader
     $swedishMonths = [
         1 => "Januari",
@@ -59,6 +63,9 @@ function buildCalendar($year, $month, $bookedDays)
         $weekday = date('N', strtotime("$year-$month-$day"));
         if ($weekday == 6 || $weekday == 7) {
             $classes[] = 'weekend';
+        }
+        if ($year == $todayYear && $month == $todayMonth && $day == $todayDay) {
+            $classes[] = 'today';
         }
 
         $classString = implode(' ', $classes);
