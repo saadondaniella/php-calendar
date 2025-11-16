@@ -48,7 +48,20 @@ if ($nextMonth > 12) {
         <!-- kalendern -->
         <?= buildCalendar($year, $month, $booked); ?>
 
-    </div>
+        <div class="calendar-legend">
+            <div class="legend-item">
+                <span class="legend-color legend-booked"></span>
+                <span>Bokad</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-color legend-weekend"></span>
+                <span>Helg</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-color legend-today"></span>
+                <span>Idag</span>
+            </div>
+        </div>
 
 </body>
 

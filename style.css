@@ -104,3 +104,39 @@ body {
 .calendar-nav a:hover {
   background: #f4f4f4;
 }
+.calendar-legend {
+  max-width: 280px;
+  margin: 0.75rem auto 1.5rem;
+  font-family: system-ui, sans-serif;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.legend-color {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+.legend-booked {
+  background: rgb(218, 89, 89);
+  border-color: #7b4002;
+}
+
+.legend-weekend {
+  background: #fbe9e7;
+  border-color: #f3b6a5;
+}
+
+.legend-today {
+  background: #fffde7;
+  border-color: blueviolet;
+}
