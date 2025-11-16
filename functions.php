@@ -2,7 +2,7 @@
 
 function buildCalendar($year, $month, $bookedDays)
 {
-    // Svenska månadsnamn
+    // Svenska månader
     $swedishMonths = [
         1 => "Januari",
         2 => "Februari",
@@ -23,19 +23,31 @@ function buildCalendar($year, $month, $bookedDays)
     // Antal dagar i månaden
     $daysInMonth = date("t", strtotime("$year-$month-01"));
 
-    // Vilken veckodag den 1:a ligger på
+    // Vilken veckodag 1:a är (1 = mån, 7 = sön)
     $firstWeekday = date("N", strtotime("$year-$month-01"));
 
-    // Rubrik + start på kalendern
+    // Rubrik
     $html = "<h2 class='month-title'>$monthName $year</h2>";
+
+    // Svenska veckodagar
+    $weekdays = ["Mån", "Tis", "Ons", "Tors", "Fre", "Lör", "Sön"];
+
+    // Veckodagsrad
+    $html .= "<div class='weekdays'>";
+    foreach ($weekdays as $weekdayName) {
+        $html .= "<div class='weekday'>$weekdayName</div>";
+    }
+    $html .= "</div>";
+
+    // Start på kalendern
     $html .= '<section class="calendar">';
 
-    // Tomma rutor innan första dagen
+    // Tomma rutor
     for ($i = 1; $i < $firstWeekday; $i++) {
         $html .= '<div class="day empty"></div>';
     }
 
-    // Dagar i månaden
+    // Alla dagar i månaden
     for ($day = 1; $day <= $daysInMonth; $day++) {
 
         $classes = ['day'];
@@ -54,7 +66,7 @@ function buildCalendar($year, $month, $bookedDays)
         $html .= "<div class=\"$classString\">$day</div>";
     }
 
-    $html .= ' </section>';
+    $html .= '</section>';
 
     return $html;
 }
