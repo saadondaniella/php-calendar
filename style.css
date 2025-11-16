@@ -45,3 +45,7 @@
 .booked:hover {
   background: #d6caa5;
 }
+.empty {
+  background: transparent;
+  border: none;
+}
